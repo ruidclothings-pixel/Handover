@@ -58,6 +58,27 @@ What you need:
 
 ---
 
+## Live diagnostic log — connecting Claude Code to the store (in progress, as of 5 September 2026)
+
+Getting Claude Code actually talking to the live store hit a snag. Keeping a record here so nobody repeats steps that have already been tried.
+
+**Confirmed working / ruled out:**
+- The store's real address is correct and live: `b6kcb8-r6.myshopify.com`.
+- The store is on a genuine paid **Basic plan** (discounted to £1/month until 29 October 2026) — it's not a Partner development store, so that's not the cause.
+- The Claude Code environment ("Baker Home") was initially blocked from reaching the internet at all beyond GitHub — that setting has since been opened up, and this session can now reach Shopify's servers.
+
+**Not yet working:**
+- Four separate Theme Access passwords have now been tried (Andy's original, plus three freshly generated via Shopify admin → Apps → Theme Access) — all four were rejected by Shopify as invalid. Tested three different ways: direct requests to Shopify, and through Shopify's own official Shopify CLI tool. Same rejection every time.
+- Checked and ruled out along the way: mistyped passwords (checked directly against screenshots of the actual password screen), wrong store address, wrong API version, asking for the wrong thing (tried both the general theme list and the specific known theme ID from Andy's original notes).
+
+**Not yet known:** whether this is something specific to this particular Claude Code cloud session, or a genuine problem with the store/app side that would affect anyone trying to connect. The way to find out: have someone test one of the passwords from an ordinary computer with the Shopify CLI, since Andy has connected to this store successfully before. **Currently on hold — waiting for Andy and his machine to be available.**
+
+**For whoever picks this up next: don't generate more Theme Access passwords hoping one works.** Four genuine ones have failed identically — a fifth is very unlikely to behave differently. The one useful next step is the Andy test above.
+
+**Housekeeping once this is sorted:** several unused Theme Access passwords now exist on the store's Passwords list (Apps → Theme Access) from this troubleshooting. Once a working setup is found, delete the ones that didn't work and keep only the one actually in use — Shopify's own guidance on that page says to delete a developer's password once they're no longer using it.
+
+---
+
 ## Step 4 — Clear the blockers (do these first, in this order)
 
 These are carried over from Andy's note — nothing has changed, they're still open:
